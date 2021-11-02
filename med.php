@@ -8,7 +8,14 @@
 			$d_info = $_GET["dinfo"];
 			$vaccine_status = $_GET["dose"];
 
-			$sql = "insert into medical values()"
+			if ($disability == "yes"){
+				$sql = "insert into medical values(\"{$studentMIS}\", \"{$bg}\", \"{$vaccine_status}\", TRUE, \"{$d_info}\");";
+				echo $sql;
+			}
+			else{
+				$sql = "insert into medical values(\"{$studentMIS}\", \"{$bg}\", \"{$vaccine_status}\", FALSE, NULL);";
+				echo $sql;
+			}
 		}
 	}
 	$p = new medical;
