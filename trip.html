@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>US Trip Form</title>
+    <script src="trip.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
@@ -171,7 +172,62 @@
       .gender{
         display: inline-flex;
       }       
-    </style>
+      .popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+  </style>
   </head>
   <body>
     <div class="testbox">
@@ -183,6 +239,7 @@
         <fieldset>
           <legend>Student Information</legend>
           <div class="item">
+            <span class="popuptext" id="validate_MIS">MIS contains only numbers</span>
             <label for="Mis">MIS<span>*</span></label>
             <input id="MIS" type="text" name="MIS" required/>
           </div>
@@ -235,10 +292,13 @@
             <label for="year">Year<span>*</span></label>
             <input id="year" type="text" name="year" required/>
           </div>
+        <div class="validate-button" onclick="myFunction()">
+            <button>VALIDATE!</button>
+        </div>
         <div class="btn-block">
-          <button type="submit" href="/">
+          <button type="submit" id = "submitTrip" href="/">
             Submit
-          </button>
+          </button> 
         </div>
       </form>
     </div>
