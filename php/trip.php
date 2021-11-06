@@ -21,9 +21,10 @@
 <html>
   <head>
     <title>Passport Information</title>
-    <script src="passport.js"></script>
+    
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="../js/passport.js"></script>
     <style>
       html, body {
       min-height: 100%;
@@ -188,11 +189,68 @@
       display:block;
       padding-bottom:5px;
       }
+      .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+  
+      /* The actual popup */
+      .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -40px;
+      }
+  
+      /* Popup arrow */
+      .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+      
+      /* Toggle this class - hide and show the popup */
+      .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+      }
+      .hide {
+        visibility: hidden;
+      }
+      
+      /* Add animation (fade in the popup) */
+      @-webkit-keyframes fadeIn {
+        from {opacity: 0;} 
+        to {opacity: 1;}
+      }
+      
+      @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+      }
     </style>
   </head>
   <body>
     <div class="testbox">
-      <form action="passport.php">
+      <form action="passport.php" onsubmit="return myFunction(this)">
         <div class="banner">
           <h1>Passport Information Form</h1>
         </div>
@@ -200,18 +258,30 @@
         <fieldset>
           <legend>Student Passport Information</legend>
           <div class="item">
+            <div class="popup">
+              <span class="popuptext" id="check_MIS">MIS should be 9 digits only</span>
+            </div>
             <label for="mis">MIS<span>*</span></label>
             <input id="mis" type="text" name="mis" required/>
           </div>
           <div class="item">
+            <div class="popup">
+              <span class="popuptext" id="check_number">Invalid Passport Number</span>
+            </div>
             <label for="pno">Passport Number<span>*</span></label>
             <input id="pno" type="text" name="pno" required/>
           </div>
           <div class="item">
+            <div class="popup">
+              <span class="popuptext" id="check_name">Invalid Name</span>
+            </div>
             <label for="pname">Name on Passport<span>*</span></label>
             <input id="pname" type="text" name="pname" required/>
           </div>
           <div class = "cal">
+            <div class="popup">
+              <span class="popuptext" id="check_expiry">MIS should be 9 digits only</span>
+            </div>
             <label for="expiry">Expiry Date<span>*</span></label>
             <input id="expiry" type="date" name="expiry" required>
           </div>
@@ -231,10 +301,9 @@
         </fieldset>
         <br/>
         <div class="btn-block">
-          <button type="submit" href="/">Submit</button>
-        </div>
-        <div class="validate">
-          <button onclick="myFunctions()">Validate!</button>
+          <button type="submit" id = "submitPassport" href="/">
+            Submit
+          </button> 
         </div>
       </form>
     </div>

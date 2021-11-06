@@ -26,7 +26,7 @@
     <title>Student Medical Information</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <script src="med.js"></script>
+    <script src="../js/med.js"></script>
     <style>
       html, body {
       min-height: 100%;
@@ -184,11 +184,69 @@
       display:block;
       padding-bottom:5px;
       }
+      .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+  
+      /* The actual popup */
+      .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -40px;
+      }
+  
+      /* Popup arrow */
+      .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+      
+      /* Toggle this class - hide and show the popup */
+      .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+      }
+      .hide {
+        visibility: hidden;
+      }
+      
+      /* Add animation (fade in the popup) */
+      @-webkit-keyframes fadeIn {
+        from {opacity: 0;} 
+        to {opacity: 1;}
+      }
+      
+      @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+      }
     </style>
   </head>
   <body>
     <div class="testbox">
-      <form action="med.php">
+      <form action="med.php" onsubmit="return myFunction(this)">
         <div class="banner">
           <h1>Student Medical Form</h1>
         </div>
@@ -196,10 +254,16 @@
         <fieldset>
           <legend>Student Medical Information</legend>
           <div class="item">
+            <div class="popup">
+              <span class="popuptext" id="check_MIS">MIS should be 9 digits only</span>
+            </div>
             <label for="mis"> Student MIS Number<span>*</span></label>
             <input id="mis" type="text" name="mis" required/>
           </div>
           <div class="item">
+            <div class="popup">
+              <span class="popuptext" id="check_bg">Invalid Blood Group</span>
+            </div>
             <label for="bg">Blood Group<span>*</span></label>
             <input id="bg" type="text" name="bg" required/>
           </div>
@@ -245,7 +309,7 @@
         <div class="btn-block">
           <button type="submit" href="/">Submit</button>
         </div>
-        <div class="validate-button" onclick="myFunction()">
+        <div class="validate-button">
           <button>Validate!</button>
         </div>
       </form>
