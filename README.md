@@ -7,11 +7,14 @@
 
 # Tools and Technologies Used:
 ## Languages Used: HTML, CSS, PHP, Python
-## DATABASE/TOOLS: MYSQL, XAMPP
+## DataBase/Tools: MYSQL, XAMPP
+
+## XAMP
+### XAMPP is a free and open-source cross-platform web server solution stack package developed by Apache Friends,consisting mainly of the Apache HTTP Server, MariaDB database, and interpreters for scripts written in the PHP and Perl programming languages.Since most actual web server deployments use the same components as XAMPP, it makes transitioning from a local test server to a live server possible.
 
 ## Features:
 ### Website is responsive
-### Has a good layout
+### Has a good layout and structure and minute detailing has been done.
 ### Proper validations are added for every input field
 
 # Flow of WebApp through Screenshots
