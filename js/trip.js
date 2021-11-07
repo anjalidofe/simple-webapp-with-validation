@@ -39,12 +39,7 @@ function myFunction() {
         mis_popup.classList.toggle("show");
         return false;
     }
-    
-    
-    if (name.value.length > 0 || validateName(name.value) == false){
-        name_popup.classList.toggle("show");
-        return false;
-    }
+
         //pop up
     int_age = Number(age.value)
     if (checkIfStringHasOnlyDigits(age.value) == false || int_age < 18 || int_age > 22){

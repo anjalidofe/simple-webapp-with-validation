@@ -309,9 +309,6 @@
         <div class="btn-block">
           <button type="submit" href="/">Submit</button>
         </div>
-        <div class="validate-button">
-          <button>Validate!</button>
-        </div>
       </form>
     </div>
   </body>
