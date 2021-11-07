@@ -35,6 +35,15 @@ def valid_phone(phone):
     except:
         print("Error")
 
+#Validation for Blood Group        
+def valid_bg(bg):
+    try:
+        if bg == "O+" or bg == "A+" or bg == "A-" or bg == "AB+" or bg == "AB-" or bg == "B+" or bg == "B-" or bg == "O-":
+            print("Valid Blood Group")
+        else:
+            print("Invalid BloodGroup")
+    except:
+        print("Error")
 #test cases
 # valid_phone("12345") #invalid case
 # valid_phone("123456789=") #invalid case
