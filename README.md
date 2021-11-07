@@ -6,9 +6,8 @@
 ## Anjali Dofe (111903137)
 
 # Tools and Technologies Used:
-## Languages Used: HTML, CSS, PHP
+## Languages Used: HTML, CSS, PHP, Python
 ## DATABASE/TOOLS: MYSQL, XAMPP
-## TESTING Tool Language: JS (also some in python)
 
 ## Features:
 ### Website is responsive
