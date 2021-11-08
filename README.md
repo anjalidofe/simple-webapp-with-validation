@@ -1,4 +1,4 @@
-# Software Engineering MINIPROJECT
+# Software Engineering-1 MINIPROJECT
 # Topic: US College Trip Form
 
 ## Abhay Koushal (111903133)
